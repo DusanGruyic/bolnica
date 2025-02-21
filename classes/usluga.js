@@ -1,12 +1,12 @@
 export class Usluga {
-  constructor(nazivUsluge, cena, datum_usluge) {
+  constructor(nazivUsluge, cena, datumUsluge) {
     this.nazivUsluge = nazivUsluge;
     this.cena = cena;
-    this.datum_usluge = datum_usluge;
+    this.datumUsluge = datumUsluge;
   }
   prikaziPodatkeUsluge() {
     console.log(`Naziv usluge: ${this.nazivUsluge}`);
     console.log(`Cena usluge: ${this.cena}`);
-    console.log(`Datum usluge: ${this.datum_usluge}`);
+    console.log(`Datum usluge: ${this.datumUsluge}`);
   }
 }

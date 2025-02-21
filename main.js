@@ -2,6 +2,7 @@ import { Pacijent } from "./classes/pacijent.js";
 import { Lekar } from "./classes/lekar.js";
 import { BolnickoOdeljenje } from "./classes/bolnickoOdeljenje.js";
 import { Usluga } from "./classes/usluga.js";
+import { Dijagnoza } from "./classes/dijagnoza.js";
 
 const pacijent1 = new Pacijent(
   "Marko",
@@ -12,7 +13,7 @@ const pacijent1 = new Pacijent(
   ["Penicilin"],
   "Stabilno"
 );
-
+pacijent1.prikaziPodatkePacijenta();
 const pacijent2 = new Pacijent(
   "Jelena",
   "Jovanović",
@@ -29,16 +30,17 @@ let lekar2 = new Lekar("Milan", "Jovanović", "Opšta medicina");
 console.log("\n--- Dodavanje pacijenata lekaru ---");
 lekar1.dodajPacijenta(pacijent1, pacijent2);
 
-let kardiologija = new BolnickoOdeljenje("Kardiologija", [], []);
+const dijagnozaPacijenta = new Dijagnoza("Blaga aritmija");
+const dijagnozaPacijenta1 = new Dijagnoza("Povišen krvni pritisak");
 
+let kardiologija = new BolnickoOdeljenje("Kardiologija", [], []);
 console.log("\n--- Prijem pacijenata na odeljenje ---");
-kardiologija.prijem_pacijenta(pacijent1, pacijent2);
+kardiologija.prijemPacijenta(pacijent1, pacijent2);
 
 console.log("\n--- Dodavanje doktora na odeljenje ---");
-kardiologija.dodaj_lekara(lekar1);
+kardiologija.dodajLekara(lekar1);
 
 let ekg = new Usluga("EKG test", 5000, new Date().toISOString());
-
 let opstiPregled = new Usluga("Opsti pregled", 2000, new Date().toISOString());
 let infuzija = new Usluga("Davanje infuzije", 3000, new Date().toISOString());
 let sistematski = new Usluga(
@@ -61,7 +63,8 @@ console.log("\n--- Otkazivanje pregleda ---");
 pacijent1.otkaziPregled(lekar1, ekg);
 
 console.log("\n--- Prikaz dijagnoze ---");
-lekar1.postavi_dijagnozu(pacijent1, "Blaga aritmija");
+lekar1.postaviDijagnozu(pacijent1, dijagnozaPacijenta);
+pacijent1.prikaziIstorijuBolesti();
 
 console.log("\n--- Prikaz podataka pacijenta ---");
 pacijent1.prikaziPodatkePacijenta();

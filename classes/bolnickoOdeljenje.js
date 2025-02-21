@@ -5,7 +5,7 @@ export class BolnickoOdeljenje {
     this.listaLekara = listaLekara;
   }
 
-  prijem_pacijenta(pacijent) {
+  prijemPacijenta(pacijent) {
     this.listaPacijenata.push(pacijent);
     console.log(
       `Pacijent ${pacijent.ime} ${pacijent.prezime} je primljen na odeljenje ${this.nazivOdeljenja}`

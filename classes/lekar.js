@@ -1,23 +1,28 @@
 import { Osoba } from "./osoba.js";
+import { Dijagnoza } from "./dijagnoza.js";
+
 export class Lekar extends Osoba {
-  constructor(ime, prezime, specijalizacija, lista_pacijenata = []) {
+  constructor(ime, prezime, specijalizacija, listaPacijenata = []) {
     super(ime, prezime);
     this.specijalizacija = specijalizacija;
-    this.lista_pacijenata = lista_pacijenata;
+    this.listaPacijenata = listaPacijenata;
   }
-  postavi_dijagnozu(pacijent, dijagnoza) {
+
+  postaviDijagnozu(pacijent, nazivDijagnoze) {
+    const dijagnoza = new Dijagnoza(nazivDijagnoze);
+    pacijent.istorijaBolesti.push(dijagnoza);
     console.log(
-      `Lekar ${this.ime} ${this.prezime} postavlja dijagnozu pacijentu ${pacijent.ime} ${pacijent.prezime}: ${dijagnoza}`
+      `Dijagnoza "${nazivDijagnoze}" postavljena pacijentu ${pacijent.ime} ${pacijent.prezime} `
     );
   }
 
-  prikazi_pacijente([]) {
-    console.log(this.lista_pacijenata);
+  prikaziPacijente([]) {
+    console.log(this.listaPacijenata);
   }
 
   dodajPacijenta(...pacijent) {
     pacijent.forEach((pacijent) => {
-      this.lista_pacijenata.push(pacijent);
+      this.listaPacijenata.push(pacijent);
 
       console.log(
         `Pacijent ${pacijent.ime} ${pacijent.prezime} je dodat u listu pacijenata.`
@@ -30,7 +35,7 @@ export class Lekar extends Osoba {
     console.log(`Prezime: ${this.prezime}`);
     console.log(`Specijalizacija: ${this.specijalizacija}`);
     console.log(
-      `Lista pacijenata: ${this.lista_pacijenata.map(
+      `Lista pacijenata: ${this.listaPacijenata.map(
         (pacijent) => `${pacijent.ime} ${pacijent.prezime}`
       )}`
     );

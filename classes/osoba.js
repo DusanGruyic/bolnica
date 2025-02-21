@@ -11,9 +11,9 @@ export class Osoba {
     console.log(`Prezime: ${this.prezime}`);
     console.log(`Datum rođenja: ${this.datumRodjenja}`);
     console.log(`Broj telefona: ${this.brojTelefona}`);
-    console.log(`Istorija bolesti: ${this.istorija_bolesti}`);
+    console.log(`Istorija bolesti: ${this.istorijaBolesti}`);
     console.log(`Alergije: ${this.alergije}`);
-    console.log(`Trenutno stanje: ${this.trenutno_stanje}`);
+    console.log(`Trenutno stanje: ${this.trenutnoStanje}`);
     console.log(`Specijalizacija: ${this.specijalizacija}`);
   }
 }

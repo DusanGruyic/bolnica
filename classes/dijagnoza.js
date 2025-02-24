@@ -2,6 +2,7 @@ export class Dijagnoza {
   constructor(nazivDijagnoze) {
     this.nazivDijagnoze = nazivDijagnoze;
   }
-
-  lekar;
+  naziv_dijagnoze() {
+    return this.nazivDijagnoze.nazivDijagnoze;
+  }
 }

@@ -9,8 +9,8 @@ export class Lekar extends Osoba {
   }
 
   postaviDijagnozu(pacijent, nazivDijagnoze) {
-    const dijagnoza = new Dijagnoza(nazivDijagnoze);
-    pacijent.istorijaBolesti.push(dijagnoza);
+    pacijent.istorijaBolesti.push(nazivDijagnoze);
+
     console.log(
       `Dijagnoza "${nazivDijagnoze}" postavljena pacijentu ${pacijent.ime} ${pacijent.prezime} `
     );

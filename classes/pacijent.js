@@ -1,5 +1,4 @@
 import { Osoba } from "./osoba.js";
-import { Dijagnoza } from "./dijagnoza.js";
 
 export class Pacijent extends Osoba {
   constructor(ime, prezime, datumRodjenja, brojTelefona, alergije = []) {
@@ -8,7 +7,7 @@ export class Pacijent extends Osoba {
     this.alergije = alergije;
   }
   istorijaBolesti = [];
-  trenutnoStanje = "";
+  trenutnoStanje = "Stabilno";
 
   get trenutno_stanje() {
     return this.trenutnoStanje;
@@ -26,18 +25,11 @@ export class Pacijent extends Osoba {
       return;
     }
 
-    const pregled = new Dijagnoza(
-      new Date().toISOString(),
-      lekar,
-      usluga,
-      this.trenutno_stanje
-    );
-
-    this.istorijaBolesti.push(pregled);
     console.log(
       `Zakazan pregled kod Dr. ${lekar.ime} ${lekar.prezime} za uslugu: ${usluga.nazivUsluge}`
     );
   }
+
   upisiDijagnozu(dijagnoza) {
     this.istorijaBolesti.push(dijagnoza);
     this.trenutnoStanje = dijagnoza.nazivDijagnoze;
@@ -59,10 +51,8 @@ export class Pacijent extends Osoba {
   }
 
   prikaziIstorijuBolesti() {
-    const istorijaBolesti = this.istorijaBolesti.map(
-      (pregled) => pregled.trenutnoStanje
-    );
-    console.log(istorijaBolesti);
+    const istorijaBolesti = this.istorijaBolesti.map((pregled) => pregled);
+    console.log(`Istorija bolesti pacijenta ${istorijaBolesti}`);
   }
 
   prikaziPodatkePacijenta() {
@@ -75,6 +65,6 @@ export class Pacijent extends Osoba {
     Alergije: ${this.alergije.join(", ")}
     Trenutno stanje: ${this.trenutnoStanje}
   `;
-    console.log(this.istorijaBolesti);
+    console.log(podaci);
   }
 }

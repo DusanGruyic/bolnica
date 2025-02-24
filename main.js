@@ -63,7 +63,9 @@ console.log("\n--- Otkazivanje pregleda ---");
 pacijent1.otkaziPregled(lekar1, ekg);
 
 console.log("\n--- Prikaz dijagnoze ---");
-lekar1.postaviDijagnozu(pacijent1, dijagnozaPacijenta);
+lekar1.postaviDijagnozu(pacijent1, dijagnozaPacijenta.nazivDijagnoze);
+
+lekar1.postaviDijagnozu(pacijent1, "Kasalj");
 pacijent1.prikaziIstorijuBolesti();
 
 console.log("\n--- Prikaz podataka pacijenta ---");

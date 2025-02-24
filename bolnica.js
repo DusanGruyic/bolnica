@@ -9,26 +9,38 @@ const pacijent1 = new Pacijent(
   "Petrović",
   "15.03.1990",
   "061-123-4567",
-  [],
-  ["Penicilin"],
+  ["Penicilin", "Grinje"],
   "Stabilno"
 );
-pacijent1.prikaziPodatkePacijenta();
+
 const pacijent2 = new Pacijent(
   "Jelena",
   "Jovanović",
   "20.03.1995",
   "061-765-4321",
-  [],
   ["Grinje"],
   "Stabilno"
 );
 
-let lekar1 = new Lekar("Jovana", "Ilić", "Kardiolog");
-let lekar2 = new Lekar("Milan", "Jovanović", "Opšta medicina");
+let lekar1 = new Lekar(
+  "Jovana",
+  "Ilić",
+  "Kardiolog",
+  "20.03.1990",
+  "061-765-4321"
+);
+
+let lekar2 = new Lekar(
+  "Milan",
+  "Jovanović",
+  "Opšta medicina",
+  "20.03.1991",
+  "061-765-5221"
+);
 
 console.log("\n--- Dodavanje pacijenata lekaru ---");
 lekar1.dodajPacijenta(pacijent1, pacijent2);
+lekar1.prikaziPacijente();
 
 const dijagnozaPacijenta = new Dijagnoza("Blaga aritmija");
 const dijagnozaPacijenta1 = new Dijagnoza("Povišen krvni pritisak");
@@ -40,14 +52,10 @@ kardiologija.prijemPacijenta(pacijent1, pacijent2);
 console.log("\n--- Dodavanje doktora na odeljenje ---");
 kardiologija.dodajLekara(lekar1);
 
-let ekg = new Usluga("EKG test", 5000, new Date().toISOString());
-let opstiPregled = new Usluga("Opsti pregled", 2000, new Date().toISOString());
-let infuzija = new Usluga("Davanje infuzije", 3000, new Date().toISOString());
-let sistematski = new Usluga(
-  "Sistematski pregled",
-  2000,
-  new Date().toISOString()
-);
+let ekg = new Usluga("EKG test", 5000);
+let opstiPregled = new Usluga("Opsti pregled", 2000);
+let infuzija = new Usluga("Davanje infuzije", 3000);
+let sistematski = new Usluga("Sistematski pregled", 2000);
 
 console.log("\n--- Podaci usluga ---");
 ekg.prikaziPodatkeUsluge();

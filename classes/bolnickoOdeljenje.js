@@ -1,9 +1,9 @@
 export class BolnickoOdeljenje {
-  constructor(nazivOdeljenja, listaPacijenata = [], listaLekara = []) {
+  constructor(nazivOdeljenja) {
     this.nazivOdeljenja = nazivOdeljenja;
-    this.listaPacijenata = listaPacijenata;
-    this.listaLekara = listaLekara;
   }
+  listaPacijenata = [];
+  listaLekara = [];
 
   prijemPacijenta(pacijent) {
     this.listaPacijenata.push(pacijent);

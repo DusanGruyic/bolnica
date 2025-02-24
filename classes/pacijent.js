@@ -7,9 +7,9 @@ export class Pacijent extends Osoba {
     this.alergije = alergije;
   }
   istorijaBolesti = [];
-  trenutnoStanje = "Stabilno";
+  trenutnoStanje;
 
-  get trenutno_stanje() {
+  trenutno_stanje() {
     return this.trenutnoStanje;
   }
 

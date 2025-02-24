@@ -3,6 +3,6 @@ export class Dijagnoza {
     this.nazivDijagnoze = nazivDijagnoze;
   }
   naziv_dijagnoze() {
-    return this.nazivDijagnoze.nazivDijagnoze;
+    return this.nazivDijagnoze;
   }
 }

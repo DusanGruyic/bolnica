@@ -1,12 +1,11 @@
 import { Osoba } from "./osoba.js";
-import { Dijagnoza } from "./dijagnoza.js";
 
 export class Lekar extends Osoba {
-  constructor(ime, prezime, specijalizacija, listaPacijenata = []) {
-    super(ime, prezime);
+  constructor(ime, prezime, specijalizacija, datumRodjenja, brojTelefona) {
+    super(ime, prezime, datumRodjenja, brojTelefona);
     this.specijalizacija = specijalizacija;
-    this.listaPacijenata = listaPacijenata;
   }
+  listaPacijenata = [];
 
   postaviDijagnozu(pacijent, nazivDijagnoze) {
     pacijent.istorijaBolesti.push(nazivDijagnoze);
@@ -16,7 +15,7 @@ export class Lekar extends Osoba {
     );
   }
 
-  prikaziPacijente([]) {
+  prikaziPacijente() {
     console.log(this.listaPacijenata);
   }
 
@@ -39,5 +38,7 @@ export class Lekar extends Osoba {
         (pacijent) => `${pacijent.ime} ${pacijent.prezime}`
       )}`
     );
+    console.log(`Datum rodjenjda ${this.datumRodjenja}`);
+    console.log(`Broj telefona ${this.brojTelefona}`);
   }
 }

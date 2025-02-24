@@ -9,7 +9,6 @@ const pacijent1 = new Pacijent(
   "Petrović",
   "15.03.1990",
   "061-123-4567",
-  ["Penicilin", "Grinje"],
   "Stabilno"
 );
 
@@ -18,7 +17,6 @@ const pacijent2 = new Pacijent(
   "Jovanović",
   "20.03.1995",
   "061-765-4321",
-  ["Grinje"],
   "Stabilno"
 );
 
@@ -39,7 +37,9 @@ let lekar2 = new Lekar(
 );
 
 console.log("\n--- Dodavanje pacijenata lekaru ---");
-lekar1.dodajPacijenta(pacijent1, pacijent2);
+lekar1.dodajPacijenta(pacijent1);
+lekar1.dodajPacijenta(pacijent2);
+
 lekar1.prikaziPacijente();
 
 const dijagnozaPacijenta = new Dijagnoza("Blaga aritmija");
@@ -71,9 +71,11 @@ console.log("\n--- Otkazivanje pregleda ---");
 pacijent1.otkaziPregled(lekar1, ekg);
 
 console.log("\n--- Prikaz dijagnoze ---");
-lekar1.postaviDijagnozu(pacijent1, dijagnozaPacijenta.nazivDijagnoze);
 
+lekar1.postaviDijagnozu(pacijent1, dijagnozaPacijenta.nazivDijagnoze);
+lekar1.dodeliAlergiju(pacijent1, "Penicilin");
 lekar1.postaviDijagnozu(pacijent1, "Kasalj");
+
 pacijent1.prikaziIstorijuBolesti();
 
 console.log("\n--- Prikaz podataka pacijenta ---");

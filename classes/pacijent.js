@@ -1,12 +1,11 @@
 import { Osoba } from "./osoba.js";
 
 export class Pacijent extends Osoba {
-  constructor(ime, prezime, datumRodjenja, brojTelefona, alergije = []) {
+  constructor(ime, prezime, datumRodjenja, brojTelefona) {
     super(ime, prezime, datumRodjenja, brojTelefona);
-
-    this.alergije = alergije;
   }
   istorijaBolesti = [];
+  alergije = [];
   trenutnoStanje;
 
   trenutno_stanje() {
@@ -24,15 +23,14 @@ export class Pacijent extends Osoba {
       );
       return;
     }
-
     console.log(
       `Zakazan pregled kod Dr. ${lekar.ime} ${lekar.prezime} za uslugu: ${usluga.nazivUsluge}`
     );
   }
 
-  upisiDijagnozu(dijagnoza) {
+  upisiDijagnozu(pacijent, dijagnoza) {
     this.istorijaBolesti.push(dijagnoza);
-    this.trenutnoStanje = dijagnoza.nazivDijagnoze;
+    this.trenutnoStanje = pacijent.istorijaBolesti.slice(-1);
   }
 
   zakaziPregledKodViseLekara(lekari, usluga) {
@@ -62,7 +60,7 @@ export class Pacijent extends Osoba {
     Datum rođenja: ${this.datumRodjenja}
     Broj telefona: ${this.brojTelefona}
     Istorija bolesti: ${this.istorijaBolesti}
-    Alergije: ${this.alergije.join(", ")}
+    Alergije: ${this.alergije}
     Trenutno stanje: ${this.trenutnoStanje}
   `;
     console.log(podaci);

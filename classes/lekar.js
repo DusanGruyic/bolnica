@@ -8,8 +8,7 @@ export class Lekar extends Osoba {
   listaPacijenata = [];
 
   postaviDijagnozu(pacijent, nazivDijagnoze) {
-    pacijent.istorijaBolesti.push(nazivDijagnoze);
-
+    pacijent.upisiDijagnozu(pacijent, nazivDijagnoze);
     console.log(
       `Dijagnoza "${nazivDijagnoze}" postavljena pacijentu ${pacijent.ime} ${pacijent.prezime} `
     );
@@ -19,14 +18,16 @@ export class Lekar extends Osoba {
     console.log(this.listaPacijenata);
   }
 
-  dodajPacijenta(...pacijent) {
-    pacijent.forEach((pacijent) => {
-      this.listaPacijenata.push(pacijent);
+  dodajPacijenta(pacijent) {
+    this.listaPacijenata.push(pacijent);
 
-      console.log(
-        `Pacijent ${pacijent.ime} ${pacijent.prezime} je dodat u listu pacijenata.`
-      );
-    });
+    console.log(
+      `Pacijent ${pacijent.ime} ${pacijent.prezime} je dodat u listu pacijenata.`
+    );
+  }
+
+  dodeliAlergiju(pacijent, alergija) {
+    pacijent.alergije.push(alergija);
   }
 
   prikaziPodatkeLekara() {

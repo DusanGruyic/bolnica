@@ -1,5 +1,9 @@
 export class Usluga {
-  constructor(nazivUsluge, cena, datumUsluge = new Date()) {
+  constructor(
+    nazivUsluge,
+    cena,
+    datumUsluge = new Date().toLocaleDateString()
+  ) {
     this.nazivUsluge = nazivUsluge;
     this.cena = cena;
     this.datumUsluge = datumUsluge;
